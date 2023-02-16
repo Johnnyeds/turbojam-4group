@@ -15,4 +15,10 @@ public class Character : MonoBehaviour {
             rigidbody.velocity += (1f / rigidbody.mass) * momentum;
         }
     }
+    
+    public void SetKinematic(bool isKinematic) {
+        foreach (var rigidbody in rigidBodies) {
+            rigidbody.isKinematic = isKinematic;
+        }
+    }
 }
