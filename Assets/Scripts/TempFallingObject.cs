@@ -4,21 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TempFallingObject : MonoBehaviour {
-    [Serializable]
-    public struct DropObject {
-        public GameObject root;
-        public float weight;
-    }
+    public Rigidbody[] dropObjects;
+    public Rigidbody rigidbody => dropObjects[currentIndex];
     
-    public Rigidbody rigidbody;
-
-    public DropObject[] dropObjects;
-
     private int currentIndex = 0;
     
-    public void Reset(Vector3 position, Quaternion rotation) {
-        transform.position = position;
-        transform.rotation = rotation;
+    public void Reset() {
+        rigidbody.transform.localPosition = Vector3.zero;
+        rigidbody.transform.localRotation = Quaternion.identity;
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
     }
@@ -34,10 +27,13 @@ public class TempFallingObject : MonoBehaviour {
 
         for (int i = 0; i < dropObjects.Length; i++) {
             var dropObject = dropObjects[i];
-            dropObject.root.SetActive(i == currentIndex);
-            if (i == currentIndex) {
-                rigidbody.mass = dropObject.weight;
-            }
+            dropObject.gameObject.SetActive(i == currentIndex);
         }
+        
+        rigidbody.transform.localPosition = Vector3.zero;
+        rigidbody.transform.localRotation = Quaternion.identity;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+        rigidbody.isKinematic = true;
     }
 }
