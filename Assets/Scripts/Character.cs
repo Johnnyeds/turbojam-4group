@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
     private Rigidbody[] rigidBodies;
-    
+
     private void Awake() {
         rigidBodies = gameObject.GetComponentsInChildren<Rigidbody>();
     }
