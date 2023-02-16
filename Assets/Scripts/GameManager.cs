@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour {
             character.ApplyMomentum(responseMomentum);
             isReadyToLaunch = false;
         }
-    }
+		cameraController.SetState(CameraController.CameraState.FLYING);
+
+	}
 
     public void ResetGame() {
         fallingObject.Reset();
@@ -44,6 +46,6 @@ public class GameManager : MonoBehaviour {
         Destroy(character.gameObject);
         character = Instantiate(characterPrefab, characterStartPosition, characterStartRotation);
         isReadyToLaunch = true;
-		cameraController.ResetCamera(character.transform);
+		//cameraController.ResetCamera(character.transform);
     }
 }
