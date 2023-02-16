@@ -8,7 +8,11 @@ public class TempFallingObject : MonoBehaviour {
     public Rigidbody rigidbody => dropObjects[currentIndex];
     
     private int currentIndex = 0;
-    
+
+    private void Awake() {
+        Toggle(UnityEngine.Random.Range(0, dropObjects.Length));
+    }
+
     public void Reset() {
         rigidbody.transform.localPosition = Vector3.zero;
         rigidbody.transform.localRotation = Quaternion.identity;

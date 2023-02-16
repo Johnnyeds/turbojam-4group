@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
     public Character character;
 	public CameraController cameraController;
     public GameHUD gameHUD;
+
+    public float objectRotationSpeed = 2f;
     
     private bool isReadyToLaunch = true;
     private static GameManager m_instance;
@@ -58,6 +60,13 @@ public class GameManager : MonoBehaviour {
 		cameraController.ResetCamera(character.transform, fallingObject.transform);
     }
 
+    private void Update() {
+        if (currentState == GameState.SelectDropObject) {
+            var rotation = fallingObject.rigidbody.transform.rotation.eulerAngles;
+            fallingObject.rigidbody.transform.rotation = Quaternion.Euler(rotation.x, rotation.y + objectRotationSpeed * Time.deltaTime, rotation.z);
+        }
+    }
+
     public void SetState(GameState state) {
         switch (state) {
             case GameState.SelectDropObject:
@@ -70,6 +79,8 @@ public class GameManager : MonoBehaviour {
                 InitLaunchedState();
                 break;
         }
+
+        currentState = state;
     }
 
     private void InitSelectDropObjectState() {
