@@ -25,14 +25,21 @@ public class CameraController : MonoBehaviour
 
 	private CameraState currentState = CameraState.UNINITIALIZED;
 	private Vector3 currentLookAt;
+	private Vector3 GameOverPos;
 	
 	public void SetState(CameraState cameraState) {
+		if (currentState == cameraState)
+			return;
+
 		nextState = cameraState;
 		currentState = cameraState;
 		stateTimer = 0.0f;
 
 		if (currentState == CameraState.SELECT_OBJECT)
 			Snapp();
+
+		if (currentState == CameraState.GAME_OVER)
+			GameOverPos = player.transform.position;
 	}
 
 	public void ResetCamera(Transform playerTransform, Transform dropObj) {
@@ -53,7 +60,7 @@ public class CameraController : MonoBehaviour
 			case CameraState.FLYING:
 				return player.position + Offset * distance;
 			case CameraState.GAME_OVER:
-				return transform.position;
+				return GameOverPos + Vector3.up * 10f;
 			default:
 				return transform.position;
 		}
@@ -71,7 +78,7 @@ public class CameraController : MonoBehaviour
 			case CameraState.FLYING:
 				return player.position;
 			case CameraState.GAME_OVER:
-				return transform.position + transform.forward;
+				return GameOverPos;
 			default:
 				return transform.position + transform.forward;
 		}

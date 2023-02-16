@@ -65,7 +65,13 @@ public class GameManager : MonoBehaviour {
             var rotation = fallingObject.rigidbody.transform.rotation.eulerAngles;
             fallingObject.rigidbody.transform.rotation = Quaternion.Euler(rotation.x, rotation.y + objectRotationSpeed * Time.deltaTime, rotation.z);
         }
-    }
+
+		if (currentState == GameState.Launched) {
+			if (character.isDead)
+				cameraController.SetState(CameraController.CameraState.GAME_OVER);
+		}
+
+	}
 
     public void SetState(GameState state) {
         switch (state) {
