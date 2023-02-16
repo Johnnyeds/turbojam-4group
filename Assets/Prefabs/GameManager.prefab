@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0390bf16f10b04c8240ab77515bbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterPrefab: {fileID: 0}
   fallingObject: {fileID: 0}
   blobbObject: {fileID: 0}
   character: {fileID: 0}
+  cameraController: {fileID: 0}
+  gameHUD: {fileID: 0}
+  objectRotationSpeed: 70
+  currentState: 0
