@@ -10,7 +10,8 @@ public class BlobbObject : MonoBehaviour {
         if (collision.collider.CompareTag("FallingObject")) {
             var collisionVelocity = collision.relativeVelocity.magnitude;
             foreach (ContactPoint contact in collision.contacts) {
-                var response = contact.normal * collisionVelocity * collision.rigidbody.mass;
+                var responseNormal = new Vector3(contact.normal.x, -contact.normal.y, contact.normal.z);
+                var response = responseNormal * collisionVelocity * collision.rigidbody.mass;
                 OnCollideWithFallingObject.Invoke(contact.point, response);
             }
         }
