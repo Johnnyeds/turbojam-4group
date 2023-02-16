@@ -2565,6 +2565,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4230169445818946338, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4544658240525506610, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
       propertyPath: camera
       value: 
@@ -2692,6 +2696,10 @@ PrefabInstance:
     - target: {fileID: 7198403212263745869, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067775709392780683, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9094196725049100432, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
       propertyPath: m_AnchoredPosition.x
