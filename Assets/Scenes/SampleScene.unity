@@ -2565,6 +2565,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4544658240525506610, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 5578046394360806498, guid: 77dd104d954210b4d8c1ed7edb6a899d, type: 3}
       propertyPath: m_Name
       value: UICanvas

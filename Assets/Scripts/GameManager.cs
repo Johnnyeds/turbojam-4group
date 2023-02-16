@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour {
     public enum GameState {
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour {
     private Quaternion characterStartRotation;
 
     public GameState currentState = GameState.SelectDropObject;
+    public float maxLaunchSpeed = 3f;
+    public float maxLaunchRotationSpeed = 10f;
+    public Vector3 launchSpeed = Vector3.zero;
     
     public static GameManager instance {
         get {
@@ -99,6 +103,14 @@ public class GameManager : MonoBehaviour {
     private void InitLaunchedState() {
         fallingObject.SetKinematic(false);
         character.SetKinematic(false);
+
+        fallingObject.rigidbody.velocity = launchSpeed * maxLaunchSpeed;
+        fallingObject.rigidbody.angularVelocity = new Vector3(
+            UnityEngine.Random.value * 2 * maxLaunchRotationSpeed - maxLaunchRotationSpeed,
+            UnityEngine.Random.value * 2 * maxLaunchRotationSpeed - maxLaunchRotationSpeed,
+            UnityEngine.Random.value * 2 * maxLaunchRotationSpeed - maxLaunchRotationSpeed
+        );
+        
         gameHUD.ShowScreen(gameHUD.launchedScreen);
     }
 }
