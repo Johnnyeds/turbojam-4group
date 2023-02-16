@@ -5,18 +5,18 @@ using UnityEngine;
 public class TempFallingObject : MonoBehaviour {
     public Rigidbody rigidbody;
 
-    private Vector3 startPosition;
-    private Quaternion startRotation;
-
-    private void Awake() {
-        startPosition = transform.position;
-        startRotation = transform.rotation;
-    }
-
-    public void Reset() {
-        transform.position = startPosition;
-        transform.rotation = startRotation;
+    public void Reset(Vector3 position, Quaternion rotation) {
+        transform.position = position;
+        transform.rotation = rotation;
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
+    }
+
+    public void SetKinematic(bool isKinematic) {
+        rigidbody.isKinematic = isKinematic;
+    }
+
+    public void Toggle(int steps) {
+        
     }
 }
