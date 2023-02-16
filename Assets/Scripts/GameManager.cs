@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour {
             isReadyToLaunch = false;
         }
 		cameraController.SetState(CameraController.CameraState.FLYING);
-
 	}
 
     public void ResetGame() {
@@ -62,7 +61,7 @@ public class GameManager : MonoBehaviour {
         Destroy(character.gameObject);
         character = Instantiate(characterPrefab, characterStartPosition, characterStartRotation);
         isReadyToLaunch = true;
-		//cameraController.ResetCamera(character.transform);
+		cameraController.ResetCamera(character.transform, fallingObject.transform);
     }
 
     public void SetState(GameState state) {
@@ -84,11 +83,13 @@ public class GameManager : MonoBehaviour {
         fallingObject.SetKinematic(true);
         character.SetKinematic(true);
         gameHUD.ShowScreen(gameHUD.selectDropObjectScreen);
+		cameraController.SetState(CameraController.CameraState.SELECT_OBJECT);
     }
     
     private void InitAdjustDropSpeedState() {
         gameHUD.ShowScreen(gameHUD.adjustDropSpeedScreen);
-    }
+		cameraController.SetState(CameraController.CameraState.PREPARE_LAUNCH);
+	}
     
     private void InitLaunchedState() {
         fallingObject.SetKinematic(false);

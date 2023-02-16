@@ -30,6 +30,9 @@ public class CameraController : MonoBehaviour
 		nextState = cameraState;
 		currentState = cameraState;
 		stateTimer = 0.0f;
+
+		if (currentState == CameraState.SELECT_OBJECT)
+			Snapp();
 	}
 
 	public void ResetCamera(Transform playerTransform, Transform dropObj) {
@@ -75,11 +78,11 @@ public class CameraController : MonoBehaviour
 	}
 
 	private float GetPanSpeed() {
-		return (cameraPanSpeed * (currentState == CameraState.FLYING ? Mathf.Lerp(1, 4.0f, stateTimer) : 1.0f)) * Mathf.Min(stateTimer*2.0f, 1.0f);
+		return (cameraPanSpeed * (currentState == CameraState.FLYING ? Mathf.Lerp(1, 4.0f, stateTimer) : 1.0f)) * Mathf.Min(stateTimer*4.0f, 1.0f);
 	}
 
 	private float GetRotateSpeed() {
-		return (cameraRotateSpeed * (currentState == CameraState.FLYING ? Mathf.Lerp(1, 10.0f, stateTimer) : 1.0f)) * Mathf.Min(stateTimer * 2.0f, 1.0f); ;
+		return (cameraRotateSpeed * (currentState == CameraState.FLYING ? Mathf.Lerp(1, 10.0f, stateTimer) : 1.0f)) /** Mathf.Min(0.stateTimer * 1.0f, 1.0f); */;
 	}
 
 	private void Snapp() {

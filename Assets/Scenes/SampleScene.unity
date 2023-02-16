@@ -656,10 +656,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d66506a06045d4c9cdabd867d971cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 2143512337}
+  player: {fileID: 2143512337}
+  dropObject: {fileID: 1442857326}
   Offset: {x: 0.06988498, y: 0.37605536, z: -0.92395806}
   distance: 7
-  cameraSpeed: 100
+  cameraPanSpeed: 10
+  cameraRotateSpeed: 10
+  nextState: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,6 +768,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e97b6e16a638d4eb7f2ea72e309d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1442857326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2286499386946683801, guid: 916925a22dcd8f84eaf0a17b67b85fba, type: 3}
+  m_PrefabInstance: {fileID: 1442857323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1625028946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 965575356513652633, guid: 832539f70fc63a24f9f4be444c8ca072, type: 3}
