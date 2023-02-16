@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameHUD : MonoBehaviour {
-
-    public void OnClickReset() {
-        GameManager.instance.ResetGame();
+    public GameObject selectDropObjectScreen;
+    public GameObject adjustDropSpeedScreen;
+    public GameObject launchedScreen;
+    
+    public void ShowScreen(GameObject screen) {
+        selectDropObjectScreen.SetActive(screen == selectDropObjectScreen);
+        adjustDropSpeedScreen.SetActive(screen == adjustDropSpeedScreen);
+        launchedScreen.SetActive(screen == launchedScreen);
     }
 }
