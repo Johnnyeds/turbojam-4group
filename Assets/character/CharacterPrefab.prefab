@@ -1139,6 +1139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4419764645576002178}
   - component: {fileID: 1293133623606782440}
+  - component: {fileID: 5041423499573324457}
   m_Layer: 0
   m_Name: CharacterPrefab
   m_TagString: Untagged
@@ -1185,6 +1186,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43ccd5acfe3ca949b88856afd91a19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5041423499573324457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899545718638186552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f753bcb6f0a3a4946b84f0b43bd8da44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 4241425453157070438}
+  upForce: 500
+  downForce: 500
 --- !u!1 &3919622710520997884
 GameObject:
   m_ObjectHideFlags: 0
