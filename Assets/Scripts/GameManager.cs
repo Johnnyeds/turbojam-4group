@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public TempFallingObject fallingObject;
     public BlobbObject blobbObject;
     public Character character;
+	public CameraController cameraController;
 
     private bool isReadyToLaunch = true;
     private static GameManager m_instance;
@@ -43,5 +44,6 @@ public class GameManager : MonoBehaviour {
         Destroy(character.gameObject);
         character = Instantiate(characterPrefab, characterStartPosition, characterStartRotation);
         isReadyToLaunch = true;
+		cameraController.ResetCamera(character.transform);
     }
 }

@@ -8,21 +8,28 @@ public class PlayerController : MonoBehaviour
 	public float upForce = 10;
 	public float downForce = 10;
 
+
+	private Rigidbody[] rigidbodies;
 	Vector3 startPosition;
     void Awake()
     {
 		startPosition = rigidbody.transform.position;
+		rigidbodies = GetComponentsInChildren<Rigidbody>();
+	}
 
+	private void ApplyForce(Vector3 force) { 
+		for(int i = 0; i < rigidbodies.Length; i++)
+			rigidbodies[i].AddForce(force * (1.0f / rigidbodies.Length), ForceMode.Impulse);
 	}
 
     void Update()
     {
 		if (Input.GetKeyDown(KeyCode.W)) {
-			rigidbody.AddForce(Vector3.up* upForce, ForceMode.Impulse);
+			ApplyForce(Vector3.up* upForce);
 		}
 
 		if (Input.GetKeyDown(KeyCode.S)) {
-			rigidbody.AddForce(Vector3.down * downForce, ForceMode.Impulse);
+			ApplyForce(Vector3.down * downForce);
 		}
 	}
 }

@@ -14,7 +14,13 @@ public class CameraController : MonoBehaviour
     {
     }
 
-    void LateUpdate()
+	public void ResetCamera(Transform target) {
+		targetObject = target.Find("J_Pelvis");
+		transform.position = targetObject.transform.position + Offset * distance;
+		transform.rotation = Quaternion.LookRotation(targetObject.transform.position - transform.position, Vector3.up);
+	}
+
+    void FixedUpdate()
     {
 		Offset = Offset.normalized;
 		Vector3 currentOffset = Offset * distance;
