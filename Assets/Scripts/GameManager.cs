@@ -22,10 +22,7 @@ public class GameManager : MonoBehaviour {
 
     private Vector3 characterStartPosition;
     private Quaternion characterStartRotation;
-    
-    private Vector3 fallingObjectStartPosition;
-    private Quaternion fallingObjectStartRotation;
-    
+
     public GameState currentState = GameState.SelectDropObject;
     
     public static GameManager instance {
@@ -41,9 +38,6 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         characterStartPosition = character.transform.position;
         characterStartRotation = character.transform.rotation;
-        
-        fallingObjectStartPosition = fallingObject.transform.position;
-        fallingObjectStartRotation = fallingObject.transform.rotation;
         SetState(GameState.SelectDropObject);
     }
 
@@ -56,7 +50,7 @@ public class GameManager : MonoBehaviour {
 	}
 
     public void ResetGame() {
-        fallingObject.Reset(fallingObjectStartPosition, fallingObjectStartRotation);
+        fallingObject.Reset();
         
         Destroy(character.gameObject);
         character = Instantiate(characterPrefab, characterStartPosition, characterStartRotation);
