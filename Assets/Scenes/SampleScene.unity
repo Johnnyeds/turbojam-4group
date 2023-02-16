@@ -2523,13 +2523,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4241425453157070438, guid: d0715c54e68f02a4fb98769cf7a83dbb, type: 3}
+      propertyPath: m_Constraints
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4419764645576002178, guid: d0715c54e68f02a4fb98769cf7a83dbb, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4419764645576002178, guid: d0715c54e68f02a4fb98769cf7a83dbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.14
+      value: 12.17
       objectReference: {fileID: 0}
     - target: {fileID: 4419764645576002178, guid: d0715c54e68f02a4fb98769cf7a83dbb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2537,7 +2541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419764645576002178, guid: d0715c54e68f02a4fb98769cf7a83dbb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.19
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 4419764645576002178, guid: d0715c54e68f02a4fb98769cf7a83dbb, type: 3}
       propertyPath: m_LocalRotation.w

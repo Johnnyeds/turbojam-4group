@@ -33,6 +33,14 @@ public class Character : MonoBehaviour {
 		}
 	}
 
+	private void Update() {
+		foreach (var rigidbody in rigidBodies) {
+			var vel = rigidbody.velocity;
+			vel.z = 0;
+			rigidbody.velocity = vel;
+		}
+	}
+
 	public void OnWaterCollision() {
 		isAlive = false;
 		foreach (var rigidbody in rigidBodies) {
